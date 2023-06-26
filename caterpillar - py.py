@@ -6,7 +6,7 @@ t.bgcolor('yellow')
 caterpillar=t.Turtle()
 caterpillar.shape('square')
 caterpillar.color('red')
-caterpillar.speed(0)
+caterpillar.speed(5)
 caterpillar.penup()
 caterpillar.hideturtle()
 
@@ -17,7 +17,7 @@ leaf.shape('leaf')
 leaf.color('green')
 leaf.penup()
 leaf.hideturtle()
-leaf.speed()
+leaf.speed(3)
 
 game_started=False
 text_turtle=t.Turtle()
@@ -37,12 +37,7 @@ def outside_window():
    outside=x < left_wall or x > right_wall or y < bottom_wall or y >top_wall
    return outside
 
-def game_over():
-    caterpillar.color('yellow')
-    leaf.color('yellow')
-    t.penup()
-    t.hideturtle()
-    t.write('GAME OVER!',align='center',font=('Aerial',30,'normal'))
+
 
 def display_score(current_score):
    score_turtle.clear()
@@ -64,7 +59,7 @@ def start_game():
      return
    game_started=True
 
-   score=0
+   score=10
    text_turtle.clear()
 
    caterpillar_speed=2
@@ -76,13 +71,13 @@ def start_game():
 
    while True:
      caterpillar.forward(caterpillar_speed)
-     if caterpillar.distance(leaf)<20:
+     if caterpillar.distance(leaf)<10:
 
 
        place_leaf()
        caterpillar_length= caterpillar_length+1
        caterpillar.shapesize(1,caterpillar_length,1)
-       caterpillar_speed=caterpillar_speed+1
+       caterpillar_speed=caterpillar_speed+9
        score=score+10
        display_score(score)
      if outside_window():
